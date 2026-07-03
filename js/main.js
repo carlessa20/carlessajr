@@ -85,35 +85,36 @@ if (heroName) {
 }
 
 // ================================
-// HOVER-TO-PLAY PROJECT VIDEOS
-// Grouped: all videos in a .ps-video-row play/pause together
+// HOVER-TO-PLAY PROJECT VIDEOS (Vimeo Player SDK)
+// Grouped: all iframes in a .ps-video-row/.ps-video-pair play together
 // Individual: single .ps-video blocks play/pause on their own
-// Always-on: .ph-bg, .wi-bg, .wc-bg all autoplay continuously
+// Always-on: .ph-bg, .wi-bg, .wc-bg autoplay via URL params (no JS needed)
 // ================================
 
-// Pause everything except hero, homepage featured, and work card backgrounds
-document.querySelectorAll('video').forEach(video => {
-  if (video.closest('.ph-bg')) return;
-  if (video.closest('.wi-bg')) return;
-  if (video.closest('.wc-bg')) return;
-  video.removeAttribute('autoplay');
-  video.pause();
-});
+if (document.querySelector('.ps-video-row, .ps-video-pair, .ps-video')) {
+  const vimeoScript = document.createElement('script');
+  vimeoScript.src = 'https://player.vimeo.com/api/player.js';
+  vimeoScript.onload = function() {
+    // Grouped rows — hover row, all videos play together
+    document.querySelectorAll('.ps-video-row, .ps-video-pair').forEach(row => {
+      const iframes = Array.from(row.querySelectorAll('iframe'));
+      if (!iframes.length) return;
+      const players = iframes.map(iframe => new Vimeo.Player(iframe));
+      row.addEventListener('mouseenter', () => players.forEach(p => p.play()));
+      row.addEventListener('mouseleave', () => players.forEach(p => p.pause()));
+    });
 
-// Grouped rows — hover the whole row, all videos play together
-document.querySelectorAll('.ps-video-row, .ps-video-pair').forEach(row => {
-  const videos = row.querySelectorAll('video');
-  row.addEventListener('mouseenter', () => videos.forEach(v => v.play()));
-  row.addEventListener('mouseleave', () => videos.forEach(v => v.pause()));
-});
-
-// Single video containers (stacked .ps-video blocks only)
-document.querySelectorAll('.ps-video').forEach(container => {
-  const video = container.querySelector('video');
-  if (!video) return;
-  container.addEventListener('mouseenter', () => video.play());
-  container.addEventListener('mouseleave', () => video.pause());
-});
+    // Single video containers
+    document.querySelectorAll('.ps-video').forEach(container => {
+      const iframe = container.querySelector('iframe');
+      if (!iframe) return;
+      const player = new Vimeo.Player(iframe);
+      container.addEventListener('mouseenter', () => player.play());
+      container.addEventListener('mouseleave', () => player.pause());
+    });
+  };
+  document.head.appendChild(vimeoScript);
+}
 
 // ================================
 // NAV — scroll state + overlay toggle
