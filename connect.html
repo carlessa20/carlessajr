@@ -7,81 +7,101 @@
   <meta name="description" content="Get in touch with Carl Essa Jr — videographer and photographer based in Raleigh, NC." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
+  <div class="loader"><img src="images/logo.png" alt="Carl Essa Jr" class="loader-logo" /></div>
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
+
   <nav>
-    <a href="index.html" class="nav-logo">Carl Essa Jr</a>
-    <ul class="nav-links">
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="connect.html" class="active">Connect</a></li>
-    </ul>
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Carl Essa Jr" class="nav-logo-img" />
+          <img src="images/603 studio logo.png" alt="603 Studio" class="nav-logo-603" /></a>
+    <div class="nav-right">
+      <div class="nav-open-links">
+        <div class="nav-col-group">
+          <a href="index.html#about" class="nav-top-link"><span data-text="About">About</span></a>
+          <a href="work.html" class="nav-top-link"><span data-text="Work">Work</span></a>
+          <a href="connect.html" class="nav-top-link"><span data-text="Contact">Contact</span></a>
+        </div>
+        <div class="nav-col-group">
+          <a href="https://www.instagram.com/carlessajr" target="_blank" rel="noopener" class="nav-top-link"><span data-text="Instagram">Instagram</span></a>
+          <a href="https://www.linkedin.com/in/carl-essa-jr-638599209/" target="_blank" rel="noopener" class="nav-top-link"><span data-text="LinkedIn">LinkedIn</span></a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span class="toggle-label">Menu</span>
+        <div class="hamburger"><span></span><span></span></div>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay">
+    <div class="nav-overlay-inner">
+      <div class="nav-col">
+        <a href="index.html#about" class="overlay-link"><span data-text="About">About</span></a>
+        <a href="work.html" class="overlay-link"><span data-text="Work">Work</span></a>
+        <a href="connect.html" class="overlay-link"><span data-text="Contact">Contact</span></a>
+      </div>
+      <div class="nav-col">
+        <a href="https://www.instagram.com/carlessajr" target="_blank" rel="noopener" class="overlay-link"><span data-text="Instagram">Instagram</span></a>
+        <a href="https://www.linkedin.com/in/carl-essa-jr-638599209/" target="_blank" rel="noopener" class="overlay-link"><span data-text="LinkedIn">LinkedIn</span></a>
+      </div>
+    </div>
   </nav>
 
   <main>
+    <div class="connect-page" style="padding-top:var(--nav-h)">
 
-    <div class="connect-wrap">
-      <div class="connect-inner">
+      <p class="connect-title reveal">Let's<br>Talk.</p>
 
-        <h1>Let's<br>Talk.</h1>
+      <p class="connect-desc reveal delay-1">Whether you're a brand looking for a creative partner or a filmmaker looking to collaborate — reach out.</p>
 
-        <p class="connect-desc">Whether you're a brand looking for a creative partner or a filmmaker looking to collaborate — reach out.</p>
+      <ul class="connect-list reveal delay-2">
+        <li>
+          <a href="mailto:carlessa20@gmail.com">
+            <span class="cl-label">Email</span>
+            <span class="cl-value">carlessa20@gmail.com</span>
+            <span class="cl-arr">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/carlessajr" target="_blank" rel="noopener">
+            <span class="cl-label">Instagram</span>
+            <span class="cl-value">@carlessajr</span>
+            <span class="cl-arr">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/carl-essa-jr-638599209/" target="_blank" rel="noopener">
+            <span class="cl-label">LinkedIn</span>
+            <span class="cl-value">Carl Essa Jr</span>
+            <span class="cl-arr">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="work.html">
+            <span class="cl-label">Portfolio</span>
+            <span class="cl-value">View Selected Work</span>
+            <span class="cl-arr">→</span>
+          </a>
+        </li>
+      </ul>
 
-        <ul class="connect-list">
-
-          <li>
-            <a href="mailto:carlessa20@gmail.com">
-              <span class="cl-label">Email</span>
-              <span class="cl-value">carlessa20@gmail.com</span>
-              <span class="cl-arrow">↗</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.instagram.com/carlessa20" target="_blank" rel="noopener">
-              <span class="cl-label">Instagram</span>
-              <span class="cl-value">@carlessa20</span>
-              <span class="cl-arrow">↗</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.linkedin.com/in/carlessa20" target="_blank" rel="noopener">
-              <span class="cl-label">LinkedIn</span>
-              <span class="cl-value">Carl Essa Jr</span>
-              <span class="cl-arrow">↗</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="work.html">
-              <span class="cl-label">Portfolio</span>
-              <span class="cl-value">View Selected Work</span>
-              <span class="cl-arrow">→</span>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
     </div>
-
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <span class="footer-copy">603 Studio LLC · Raleigh, NC</span>
-    <ul class="footer-links">
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="https://www.instagram.com/carlessa20" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="https://www.linkedin.com/in/carlessa20" target="_blank" rel="noopener">LinkedIn</a></li>
-    </ul>
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="work.html">Work</a>
+    </div>
+    <span class="footer-copy">© 2025, Carl Essa Jr · 603 Studio LLC · Raleigh, NC</span>
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -3,115 +3,342 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carl Essa Jr — Videographer & Photographer</title>
+  <title>Carl Essa Jr — Videographer & Director</title>
   <meta name="description" content="Videographer and photographer producing for lifestyle and apparel brands. Based in Raleigh, NC." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Saira:ital,wdth,wght@1,112.5,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
+  <div class="loader"><img src="images/logo.png" alt="Carl Essa Jr" class="loader-logo" /></div>
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
+
   <nav>
-    <a href="index.html" class="nav-logo">Carl Essa Jr</a>
-    <ul class="nav-links">
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="connect.html">Connect</a></li>
-    </ul>
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Carl Essa Jr" class="nav-logo-img" />
+          <img src="images/603 studio logo.png" alt="603 Studio" class="nav-logo-603" /></a>
+
+    <!-- Right side: open links + compact toggle cross-fade here -->
+    <div class="nav-right">
+      <div class="nav-open-links">
+        <div class="nav-col-group">
+          <a href="#about" class="nav-top-link"><span data-text="About">About</span></a>
+          <a href="work.html" class="nav-top-link"><span data-text="Work">Work</span></a>
+          <a href="#contact" class="nav-top-link"><span data-text="Contact">Contact</span></a>
+        </div>
+        <div class="nav-col-group">
+          <a href="https://www.instagram.com/carlessajr" target="_blank" rel="noopener" class="nav-top-link"><span data-text="Instagram">Instagram</span></a>
+          <a href="https://www.linkedin.com/in/carl-essa-jr-638599209/" target="_blank" rel="noopener" class="nav-top-link"><span data-text="LinkedIn">LinkedIn</span></a>
+        </div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span class="toggle-label">Menu</span>
+        <div class="hamburger"><span></span><span></span></div>
+      </button>
+    </div>
   </nav>
+
+  <!-- Full-screen overlay (triggered by menu button) -->
+  <div class="nav-overlay">
+    <div class="nav-overlay-inner">
+      <div class="nav-col">
+        <a href="#about" class="overlay-link"><span data-text="About">About</span></a>
+        <a href="work.html" class="overlay-link"><span data-text="Work">Work</span></a>
+        <a href="#contact" class="overlay-link"><span data-text="Contact">Contact</span></a>
+      </div>
+      <div class="nav-col">
+        <a href="https://www.instagram.com/carlessajr" target="_blank" rel="noopener" class="overlay-link"><span data-text="Instagram">Instagram</span></a>
+        <a href="https://www.linkedin.com/in/carl-essa-jr-638599209/" target="_blank" rel="noopener" class="overlay-link"><span data-text="LinkedIn">LinkedIn</span></a>
+      </div>
+    </div>
+  </div>
 
   <main>
 
-    <!-- HERO -->
-    <section class="home-hero">
-      <h1>Video &amp;<br>Photography</h1>
-      <p class="tagline">Raleigh, NC</p>
+    <!-- ================================
+         HERO — Full viewport, dark, giant name
+         Replace the .hero-bg div with your reel video once ready
+         ================================ -->
+    <section class="hero">
+
+      <!-- VIDEO BACKGROUND PLACEHOLDER -->
+      <!-- When ready: remove .hero-bg and uncomment the iframe below -->
+      <div class="hero-bg">
+        <div class="hero-bg-label">[ Showreel — Add Vimeo embed here ]</div>
+        <!-- <iframe src="https://player.vimeo.com/video/YOUR_ID?autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <div class="hero-name">
+          <span class="hero-name-line">CARL</span>
+          <span class="hero-name-line">ESSA JR.</span>
+          <img src="images/603 studio logo.png" alt="603 Studio" class="hero-name-logo" />
+        </div>
+        <div class="hero-roles">
+          <span>Videographer</span>
+          <span class="hero-dot">·</span>
+          <span>Director</span>
+          <span class="hero-dot">·</span>
+          <span>Photographer</span>
+        </div>
+        <a href="work.html" class="hero-cta">
+          <div class="cta-line"></div>
+          <span>View Work</span>
+        </a>
+      </div>
+
     </section>
 
-    <!-- INTRO -->
-    <section class="home-intro">
-      <p class="lead">I make content that doesn't feel like content.</p>
-      <p class="sub">Videographer and photographer producing for lifestyle and apparel brands — from organic social to campaign work.</p>
+    <!-- ================================
+         FEATURED WORKS LIST
+         ================================ -->
+    <section class="works" id="works">
+      <span class="section-label reveal">Featured Works</span>
+
+      <div class="works-list">
+
+        <a class="work-item reveal" href="peter-millar.html">
+          <div class="wi-bg">
+            <video autoplay muted loop playsinline>
+              <source src="videos/homepage/PM Hamptons scenery.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wi-num">01</div>
+          <div class="wi-title">Weekend at the Hamptons</div>
+          <div class="wi-meta">
+            <span class="wi-label">Role</span>
+            <span class="wi-value">Director, DP</span>
+          </div>
+          <div class="wi-meta">
+            <span class="wi-label">Category</span>
+            <span class="wi-value">Lifestyle Campaign</span>
+          </div>
+          <div class="wi-link"><span>View ↗</span></div>
+        </a>
+
+        <a class="work-item reveal" href="peter-millar.html">
+          <div class="wi-bg">
+            <video autoplay muted loop playsinline>
+              <source src="videos/homepage/PM intentionally done right cover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wi-num">02</div>
+          <div class="wi-title">Intentionally Done Right</div>
+          <div class="wi-meta">
+            <span class="wi-label">Role</span>
+            <span class="wi-value">Director, DP</span>
+          </div>
+          <div class="wi-meta">
+            <span class="wi-label">Category</span>
+            <span class="wi-value">Brand Campaign</span>
+          </div>
+          <div class="wi-link"><span>View ↗</span></div>
+        </a>
+
+        <a class="work-item reveal" href="rockingham.html">
+          <div class="wi-bg">
+            <video autoplay muted loop playsinline>
+              <source src="videos/nascar/Nascar Hero & Cover Video.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wi-num">03</div>
+          <div class="wi-title">Road to NASCAR</div>
+          <div class="wi-meta">
+            <span class="wi-label">Role</span>
+            <span class="wi-value">Director, DP</span>
+          </div>
+          <div class="wi-meta">
+            <span class="wi-label">Category</span>
+            <span class="wi-value">Brand Campaign · NASCAR 2025</span>
+          </div>
+          <div class="wi-link"><span>View ↗</span></div>
+        </a>
+
+        <a class="work-item reveal" href="work.html">
+          <div class="wi-bg">
+            <video autoplay muted loop playsinline>
+              <source src="videos/homepage/the window cover video.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wi-num">04</div>
+          <div class="wi-title">The Window</div>
+          <div class="wi-meta">
+            <span class="wi-label">Role</span>
+            <span class="wi-value">Director, DP</span>
+          </div>
+          <div class="wi-meta">
+            <span class="wi-label">Category</span>
+            <span class="wi-value">Brand Campaign</span>
+          </div>
+          <div class="wi-link"><span>View ↗</span></div>
+        </a>
+
+        <a class="work-item reveal" href="loud-luxury.html">
+          <div class="wi-num">05</div>
+          <div class="wi-title">The Loud Luxury Fall Tour</div>
+          <div class="wi-meta">
+            <span class="wi-label">Role</span>
+            <span class="wi-value">Director, DP</span>
+          </div>
+          <div class="wi-meta">
+            <span class="wi-label">Category</span>
+            <span class="wi-value">Multi-City Event</span>
+          </div>
+          <div class="wi-link"><span>View ↗</span></div>
+        </a>
+
+        <a class="work-item reveal" href="triumph.html">
+          <div class="wi-bg">
+            <video autoplay muted loop playsinline>
+              <source src="videos/homepage/Ducatti homepage video.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wi-num">06</div>
+          <div class="wi-title">Reviving Ducati</div>
+          <div class="wi-meta">
+            <span class="wi-label">Role</span>
+            <span class="wi-value">Director, DP</span>
+          </div>
+          <div class="wi-meta">
+            <span class="wi-label">Category</span>
+            <span class="wi-value">Brand Launch</span>
+          </div>
+          <div class="wi-link"><span>View ↗</span></div>
+        </a>
+
+
+      </div>
     </section>
 
-    <!-- SHOWREEL -->
-    <!-- Replace the src URL below with your Vimeo embed link -->
-    <!-- Example: https://player.vimeo.com/video/YOUR_VIDEO_ID?autoplay=1&loop=1&muted=1&background=1 -->
-    <div class="home-reel">
-      <iframe
-        src="https://player.vimeo.com/video/YOUR_REEL_ID?autoplay=1&loop=1&muted=1&background=1&quality=1080p"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-        title="Carl Essa Jr — Showreel">
-      </iframe>
-    </div>
+    <!-- ================================
+         CLIENT MARQUEE
+         ================================ -->
+    <section class="clients">
+      <div class="marquee-track">
+        <span>Peter Millar</span><span class="msep">·</span>
+        <span>Loud Luxury</span><span class="msep">·</span>
+        <span>Triumph Motorcycles</span><span class="msep">·</span>
+        <span>Rockingham Speedway</span><span class="msep">·</span>
+        <span>Glenwood South</span><span class="msep">·</span>
+        <span>603 Studio</span><span class="msep">·</span>
+        <span>Half Melted Productions</span><span class="msep">·</span>
+        <span>Core One Official</span><span class="msep">·</span>
+        <span>Ducati USA</span><span class="msep">·</span>
+        <span>Confidential HQ</span><span class="msep">·</span>
+        <span>JUDHA Fitness</span><span class="msep">·</span>
+        <span>Peter Millar</span><span class="msep">·</span>
+        <span>Loud Luxury</span><span class="msep">·</span>
+        <span>Triumph Motorcycles</span><span class="msep">·</span>
+        <span>Rockingham Speedway</span><span class="msep">·</span>
+        <span>Glenwood South</span><span class="msep">·</span>
+        <span>603 Studio</span><span class="msep">·</span>
+        <span>Half Melted Productions</span><span class="msep">·</span>
+        <span>Core One Official</span><span class="msep">·</span>
+        <span>Ducati USA</span><span class="msep">·</span>
+        <span>Confidential HQ</span><span class="msep">·</span>
+        <span>JUDHA Fitness</span><span class="msep">·</span>
+      </div>
+    </section>
 
-    <!-- GRID -->
-    <section class="home-grid">
-      <p class="grid-label">Storytelling</p>
-      <div class="video-grid">
+    <!-- ================================
+         AWARDS / ACHIEVEMENTS
+         ================================ -->
+    <section class="bio-ticker">
+      <span class="section-label reveal">Selected Achievements</span>
 
-        <!-- GRID ITEM 1 — Replace src with Vimeo embed URL -->
-        <div class="video-grid-item">
-          <iframe
-            src="https://player.vimeo.com/video/GRID_VIDEO_1?autoplay=1&loop=1&muted=1&background=1"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-          </iframe>
+      <div class="bio-ticker-inner">
+        <div class="ticker-item reveal">
+          <span class="t-award">NASCAR Contract Win · 2025</span>
+          <span class="t-project">Rockingham Speedway</span>
+          <span class="t-role">Campaign Director</span>
+        </div>
+        <div class="ticker-item reveal">
+          <span class="t-award">2nd Place · Film Festival 2024</span>
+          <span class="t-project">Are You Here?</span>
+          <span class="t-role">Producer · Audio Mixer</span>
+        </div>
+        <div class="ticker-item reveal">
+          <span class="t-award">10K Followers · 3 Months</span>
+          <span class="t-project">Glenwood South Entertainment District</span>
+          <span class="t-role">Director · DP</span>
+        </div>
+        <div class="ticker-item reveal">
+          <span class="t-award">FAA Licensed Drone Pilot</span>
+          <span class="t-project">Aerial & Ground · Motion & Stills</span>
+          <span class="t-role">50+ Brand Clients</span>
+        </div>
+        <div class="ticker-item reveal">
+          <span class="t-award">Revived the Brand's Visual Voice</span>
+          <span class="t-project">Peter Millar Instagram</span>
+          <span class="t-role">CCO Now Follows · <em>"It's Back"</em> Company-Wide</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================================
+         ABOUT
+         ================================ -->
+    <section class="about-section" id="about">
+      <div class="about-grid">
+
+        <div class="about-photo-wrap reveal">
+          <img src="videos/homepage/headshot.jpg" alt="Carl Essa Jr" />
         </div>
 
-        <!-- GRID ITEM 2 -->
-        <div class="video-grid-item">
-          <iframe
-            src="https://player.vimeo.com/video/GRID_VIDEO_2?autoplay=1&loop=1&muted=1&background=1"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <!-- GRID ITEM 3 -->
-        <div class="video-grid-item">
-          <iframe
-            src="https://player.vimeo.com/video/GRID_VIDEO_3?autoplay=1&loop=1&muted=1&background=1"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <!-- GRID ITEM 4 -->
-        <div class="video-grid-item">
-          <iframe
-            src="https://player.vimeo.com/video/GRID_VIDEO_4?autoplay=1&loop=1&muted=1&background=1"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-          </iframe>
+        <div class="about-text reveal">
+          <span class="section-label">Bio</span>
+          <p class="about-bio">Drawn to brands that treat craft as a non-negotiable. Where visual language is intentional and nothing feels forced.</p>
+          <p class="about-bio">Carl Essa Jr is a videographer and photographer producing high-production content for lifestyle and apparel brands. Currently the Digital Media Producer at Peter Millar - shooting and editing video for their organic social, paid digital, and campaign work.</p>
+          <p class="about-bio">Before that: co-founded a production company, built a studio from scratch, shot across North Carolina, New York, and more - over 25 brands, a nationwide tour, and a short film that sold out two theaters.</p>
+          <p class="about-bio">FAA-licensed drone pilot. Premiere Pro · Final Cut Pro · Lightroom. Motion and stills.</p>
+          <p class="about-location">Based in Raleigh, NC.</p>
+          <a href="about.html" class="about-explore-btn">Explore Full Career →</a>
+          <img src="videos/homepage/EssaJoseph.png" alt="" class="fingerprint" />
         </div>
 
       </div>
     </section>
 
-    <!-- BRIDGE -->
-    <section class="home-bridge">
-      <h2>Craft over<br>everything.</h2>
-      <p class="bridge-sub">Every project starts with a brief and ends with something worth watching.</p>
-      <a href="work.html" class="btn">View My Work</a>
+    <!-- ================================
+         CONTACT
+         ================================ -->
+    <section class="contact-section" id="contact">
+      <span class="section-label reveal">\ Contact</span>
+      <div class="contact-list">
+        <a href="mailto:carlessa20@gmail.com" class="contact-row reveal">
+          <span class="cr-text"><span class="cr-inner" data-text="carlessa20@gmail.com">carlessa20@gmail.com</span></span>
+          <span class="cr-arrow">↗</span>
+        </a>
+        <div class="contact-row-split reveal">
+          <a href="https://www.instagram.com/carlessajr" target="_blank" rel="noopener" class="contact-row-item">
+            <span class="cr-text"><span class="cr-inner" data-text="Instagram">Instagram</span></span>
+            <span class="cr-arrow">↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/carl-essa-jr-638599209/" target="_blank" rel="noopener" class="contact-row-item">
+            <span class="cr-text"><span class="cr-inner" data-text="LinkedIn">LinkedIn</span></span>
+            <span class="cr-arrow">↗</span>
+          </a>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <span class="footer-copy">603 Studio LLC</span>
-    <ul class="footer-links">
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="connect.html">Connect</a></li>
-      <li><a href="https://www.instagram.com/carlessa20" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="https://www.linkedin.com/in/carlessa20" target="_blank" rel="noopener">LinkedIn</a></li>
-    </ul>
+    <div class="footer-nav">
+      <a href="#about">About</a>
+      <a href="work.html">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <img src="images/603 studio logo.png" alt="603 Studio LLC" class="footer-logo" />
+    <span class="footer-copy">© 2025, All Rights Reserved</span>
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
