@@ -1161,9 +1161,8 @@ footer {
 .wc-bg.wc-bg--portrait iframe,
 .wi-bg.wi-bg--portrait iframe,
 .ph-bg.ph-bg--portrait iframe {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 9 / 16;
+  width: 100vw;
+  height: calc(100vw * 16 / 9);
   min-width: unset;
   min-height: unset;
   transform: translate(-50%, -50%);
