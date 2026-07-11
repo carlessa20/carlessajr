@@ -2146,9 +2146,10 @@ footer {
 
   .connect-list a { grid-template-columns: 100px 1fr 20px; }
 
-  /* ── NAV: push open links right, closer to Instagram/LinkedIn ── */
+  /* ── NAV: shrink logo slightly + push open links right ── */
+  .nav-logo-img { height: 20px; }
   .nav-right { flex: 1; }
-  .nav-open-links { justify-content: flex-end; gap: 20px; }
+  .nav-open-links { gap: 12px; }
 
   /* ── HERO: add breathing room below name ── */
   .hero-roles { margin-top: 28px; }
@@ -2165,7 +2166,13 @@ footer {
   /* ── PROJECT PAGES: 2-col masonry for bigger images ── */
   .ps-masonry { column-count: 2; }
 
-  /* ── PROJECT PAGES: stack video pairs/rows/trios vertically ── */
+  /* ── PROJECT PAGES: text above videos, edge-to-edge video ── */
+  .ps-body { flex-direction: column; gap: 0; }
+  .ps-block { padding-left: 0; padding-right: 0; }
+  .ps-head,
+  .ps-overview { padding-left: var(--g); padding-right: var(--g); }
+
+  /* ── PROJECT PAGES: stack video pairs/rows/trios vertically, full bleed ── */
   .ps-video-pair,
   .ps-video-row,
   .ps-video-trio { grid-template-columns: 1fr; }
