@@ -4,22 +4,29 @@
 // CSS max-width:100% blocks vw-unit overrides, so we set px inline.
 // ================================
 function resizePortraitBgs() {
-  document.querySelectorAll('.wi-bg--portrait, .wc-bg--portrait, .ph-bg--portrait').forEach(function(container) {
-    var iframe = container.querySelector('iframe');
-    if (!iframe) return;
-    var W = container.offsetWidth;
-    var H = container.offsetHeight;
-    // Make the iframe portrait (9:16), wide enough to cover the container
-    var iW = Math.max(W, H * 9 / 16);
-    var iH = iW * 16 / 9;
-    iframe.style.width  = iW + 'px';
-    iframe.style.height = iH + 'px';
-    iframe.style.position  = 'absolute';
-    iframe.style.top       = '50%';
-    iframe.style.left      = '50%';
-    iframe.style.transform = 'translate(-50%, -62%)';
-    iframe.style.minWidth  = 'unset';
-    iframe.style.minHeight = 'unset';
+  // Per-container vertical crop offsets (negative = shift visible window lower in the video)
+  var panY = {
+    'wi-bg--portrait': '-57%',   // homepage Loud Luxury — up a little
+    'wc-bg--portrait': '-45%',   // works page Music Industry card — up a decent amount
+    'ph-bg--portrait': '-45%'    // Music Industry hero page — up a decent amount
+  };
+  Object.keys(panY).forEach(function(cls) {
+    document.querySelectorAll('.' + cls).forEach(function(container) {
+      var iframe = container.querySelector('iframe');
+      if (!iframe) return;
+      var W = container.offsetWidth;
+      var H = container.offsetHeight;
+      var iW = Math.max(W, H * 9 / 16);
+      var iH = iW * 16 / 9;
+      iframe.style.width     = iW + 'px';
+      iframe.style.height    = iH + 'px';
+      iframe.style.position  = 'absolute';
+      iframe.style.top       = '50%';
+      iframe.style.left      = '50%';
+      iframe.style.transform = 'translate(-50%, ' + panY[cls] + ')';
+      iframe.style.minWidth  = 'unset';
+      iframe.style.minHeight = 'unset';
+    });
   });
 }
 document.addEventListener('DOMContentLoaded', resizePortraitBgs);
