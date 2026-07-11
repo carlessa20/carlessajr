@@ -2186,8 +2186,18 @@ footer {
   .ps-video-pair--vert .ps-video video,
   .ps-video-pair--vert .ps-video iframe { aspect-ratio: 9/16; width: 100%; }
 
+  /* ── PROJECT PAGES: kill flex-grow on all direct video children of ps-body ── */
+  .ps-body > .ps-video,
+  .ps-body > .ps-video-pair,
+  .ps-body > .ps-video-trio,
+  .ps-body > .ps-video-row { flex: none !important; }
+
   /* ── PROJECT PAGES: standalone single video → 50% width, centered ── */
   .ps-body > .ps-video { width: 50%; margin: 0 auto; }
+
+  /* ── PROJECT PAGES: trio videos back to 16:9 on mobile (desktop forces 9:16) ── */
+  .ps-video-trio .ps-video iframe,
+  .ps-video-trio .ps-video video { aspect-ratio: 16/9; object-fit: unset; }
 
   /* ── PROJECT PAGES: ps-video-row → portrait at 50% centered, squares 2-col below ── */
   .ps-video-row { grid-template-columns: 1fr; }
