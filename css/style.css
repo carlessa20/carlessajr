@@ -1153,14 +1153,20 @@ footer {
 }
 
 /* Portrait video card backgrounds (9:16 video in landscape card) */
+.wc-bg.wc-bg--portrait,
+.wi-bg.wi-bg--portrait {
+  overflow: hidden;
+}
+
 .wc-bg.wc-bg--portrait iframe,
 .wi-bg.wi-bg--portrait iframe,
 .ph-bg.ph-bg--portrait iframe {
-  width: 56.25%;
-  height: 177.78%;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
   min-width: unset;
   min-height: unset;
-  transform: translate(-50%, -50%) scale(1.778);
+  transform: translate(-50%, -50%);
 }
 
 .work-card:hover .wc-bg video,
