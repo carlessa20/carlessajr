@@ -1235,6 +1235,7 @@ footer {
   display: flex;
   gap: 40px;
   align-items: flex-start;
+  margin-top: 24px;
 }
 
 .wc-meta-group {
