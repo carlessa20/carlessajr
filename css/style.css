@@ -1153,9 +1153,9 @@ footer {
 }
 
 /* Portrait video card backgrounds (9:16 video in landscape card) */
-.wc-bg--portrait iframe,
-.wi-bg--portrait iframe,
-.ph-bg--portrait iframe {
+.wc-bg.wc-bg--portrait iframe,
+.wi-bg.wi-bg--portrait iframe,
+.ph-bg.ph-bg--portrait iframe {
   width: 56.25%;
   height: 177.78%;
   min-width: unset;
@@ -1273,6 +1273,7 @@ footer {
   inset: 0;
   background: #141414;
   z-index: 0;
+  overflow: hidden;
 }
 
 .ph-bg img,
