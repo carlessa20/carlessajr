@@ -2163,9 +2163,12 @@ footer {
   /* ── PROJECT PAGES: ps-info label stacks above text ── */
   .ps-info { grid-template-columns: 1fr; gap: 8px; }
 
-  /* ── PROJECT PAGES: bigger images on mobile ── */
-  .ps-masonry { column-count: 2; }
-  .ps-grid { grid-template-columns: 1fr 1fr; }
+  /* ── PROJECT HERO: tighten meta row spacing on mobile ── */
+  .ph-meta { gap: 12px 20px; }
+
+  /* ── PROJECT PAGES: bigger images on mobile, gap above from videos ── */
+  .ps-masonry { column-count: 2; margin-top: 32px; }
+  .ps-grid { grid-template-columns: 1fr 1fr; margin-top: 32px; }
 
   /* ── PROJECT PAGES: text above videos, edge-to-edge video ── */
   .ps-body { flex-direction: column; gap: 24px; align-items: stretch !important; }
@@ -2178,9 +2181,10 @@ footer {
   .ps-video iframe,
   .ps-video video { display: block; width: 100%; aspect-ratio: 16/9; }
 
-  /* ── PROJECT PAGES: all video pairs/trios → 2 columns ── */
+  /* ── PROJECT PAGES: horizontal pairs/trios → 1 col (stacked); portrait pairs → 2 col ── */
   .ps-video-pair,
-  .ps-video-trio { grid-template-columns: 1fr 1fr; }
+  .ps-video-trio { grid-template-columns: 1fr; }
+  .ps-video-pair--vert { grid-template-columns: 1fr 1fr; }
 
   /* ── PROJECT PAGES: portrait pairs maintain 9/16 aspect at half-width ── */
   .ps-video-pair--vert .ps-video video,
@@ -2192,8 +2196,8 @@ footer {
   .ps-body > .ps-video-trio,
   .ps-body > .ps-video-row { flex: none !important; }
 
-  /* ── PROJECT PAGES: standalone single video → 50% width, centered ── */
-  .ps-body > .ps-video { width: 50%; margin: 0 auto; }
+  /* ── PROJECT PAGES: standalone single horizontal video → full width ── */
+  .ps-body > .ps-video { width: 100%; margin: 0; }
 
   /* ── PROJECT PAGES: trio videos back to 16:9 on mobile (desktop forces 9:16) ── */
   .ps-video-trio .ps-video iframe,
