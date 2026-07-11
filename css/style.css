@@ -574,10 +574,10 @@ body.nav-open .nav-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 177.78vh;
+  width: 100%;
   height: 56.25vw;
-  min-width: 100%;
   min-height: 100%;
+  min-width: 177.78vh;
   transform: translate(-50%, -50%);
   border: 0;
   pointer-events: none;
@@ -1118,7 +1118,7 @@ footer {
 
 .work-card {
   position: relative;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9;
   overflow: hidden;
   display: block;
   border: 1px solid rgba(240,237,232,0.06);
@@ -1128,6 +1128,7 @@ footer {
 .wc-bg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 }
 
 .wc-bg video,
@@ -1140,13 +1141,9 @@ footer {
 
 .wc-bg iframe {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 177.78vh;
-  height: 56.25vw;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   border: 0;
   pointer-events: none;
 }
@@ -1529,6 +1526,7 @@ footer {
 /* Video block — reusable, stack as many as needed */
 .ps-video {
   margin-bottom: 2px;
+  position: relative;
 }
 
 .ps-video iframe,
@@ -1538,6 +1536,48 @@ footer {
   aspect-ratio: 16/9;
   display: block;
   background: #111;
+  pointer-events: none;
+}
+
+/* Volume toggle button */
+.vol-btn {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(240,237,232,0.25);
+  background: rgba(12,12,12,0.65);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+.vol-btn svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+  pointer-events: none;
+}
+.vol-btn .vol-on { display: none; }
+.vol-btn .vol-off { display: block; }
+.vol-btn.unmuted .vol-on { display: block; }
+.vol-btn.unmuted .vol-off { display: none; }
+
+.ps-block:hover .vol-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+.vol-btn:hover {
+  background: rgba(240,237,232,0.15);
+  transform: scale(1.1);
 }
 
 /* Mixed video layout: 1 vertical left + square(s) right */
@@ -1559,6 +1599,7 @@ footer {
   aspect-ratio: 9/16;
   width: 100%;
   height: auto;
+  pointer-events: none;
 }
 
 /* Side-by-side: overview left, videos right */
@@ -1602,6 +1643,7 @@ footer {
   overflow: hidden;
   background: #111;
   aspect-ratio: 9/16;
+  position: relative;
 }
 
 .ps-video-left video,
@@ -1610,6 +1652,7 @@ footer {
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 
 .ps-video-right {
@@ -1622,6 +1665,7 @@ footer {
   overflow: hidden;
   background: #111;
   aspect-ratio: 1/1;
+  position: relative;
 }
 
 .ps-video-sq video,
@@ -1630,6 +1674,7 @@ footer {
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 
 /* Description row */
@@ -1686,6 +1731,52 @@ footer {
 .ps-img .pg-placeholder {
   width: 100%; height: 100%;
 }
+
+/* Three-column video trio */
+.ps-video-trio {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  flex: 1;
+}
+
+.ps-video-trio .ps-video {
+  margin-bottom: 0;
+}
+
+/* Portrait videos inside trio — override 16:9 default */
+.ps-video-trio .ps-video video,
+.ps-video-trio .ps-video iframe {
+  aspect-ratio: 9/16;
+  object-fit: cover;
+}
+
+/* Photo gallery — true masonry via column-count */
+.ps-masonry {
+  column-count: 4;
+  column-gap: 3px;
+  margin-top: 3px;
+  width: 100%;
+}
+
+.ps-masonry .ps-img {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 3px;
+  overflow: hidden;
+  background: #111;
+  aspect-ratio: unset;
+}
+
+.ps-masonry .ps-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+.ps-masonry .ps-img:hover img { filter: brightness(1.12); }
 
 /* ================================
    ABOUT PAGE
