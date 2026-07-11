@@ -1214,6 +1214,7 @@ footer {
   padding: 28px 32px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .wc-title {
@@ -1234,7 +1235,12 @@ footer {
   display: flex;
   gap: 40px;
   align-items: flex-start;
-  margin-top: auto;
+}
+
+.work-card--wide .wc-meta {
+  position: absolute;
+  bottom: 72px;
+  left: 32px;
 }
 
 .wc-meta-group {
@@ -1264,7 +1270,12 @@ footer {
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
   transition: color .2s;
-  margin-top: 14px;
+}
+
+.work-card--wide .wc-view {
+  position: absolute;
+  bottom: 28px;
+  left: 32px;
 }
 
 .work-card:hover .wc-view { color: #fff; }
