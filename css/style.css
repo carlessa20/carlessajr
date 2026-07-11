@@ -2177,21 +2177,21 @@ footer {
   .ps-video iframe,
   .ps-video video { display: block; width: 100%; aspect-ratio: 16/9; }
 
-  /* ── PROJECT PAGES: ps-video-row stacks portrait top, right section below ── */
-  .ps-video-row { grid-template-columns: 1fr; }
+  /* ── PROJECT PAGES: horizontal pairs/trios → 1 per row (stacked full-width) ── */
+  .ps-video-pair,
+  .ps-video-trio { grid-template-columns: 1fr; }
 
-  /* ── PROJECT PAGES: squares in ps-video-right go side by side ── */
-  .ps-video-right { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  /* ── PROJECT PAGES: portrait pairs → 2 per row, side by side ── */
+  .ps-video-pair.ps-video-pair--vert { grid-template-columns: 1fr 1fr; }
 
-  /* ── PROJECT PAGES: trio drops to 2-col on mobile ── */
-  .ps-video-trio { grid-template-columns: 1fr 1fr; }
-
-  /* ── PROJECT PAGES: portrait videos in pairs maintain 9/16 at half-width ── */
+  /* ── PROJECT PAGES: portrait pairs maintain 9/16 aspect at half-width ── */
   .ps-video-pair--vert .ps-video video,
-  .ps-video-pair--vert .ps-video iframe,
-  .ps-video-trio .ps-video video,
-  .ps-video-trio .ps-video iframe { aspect-ratio: 9/16; width: 100%; }
+  .ps-video-pair--vert .ps-video iframe { aspect-ratio: 9/16; width: 100%; }
 
-  /* ── PROJECT PAGES: ps-video-left fills full width when stacked ── */
-  .ps-video-left { width: 100%; }
+  /* ── PROJECT PAGES: ps-video-row stacks; single portrait at 50% (not huge) ── */
+  .ps-video-row { grid-template-columns: 1fr; }
+  .ps-video-left { width: 50%; margin: 0 auto; }
+
+  /* ── PROJECT PAGES: two squares side by side below portrait ── */
+  .ps-video-right { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
 }
