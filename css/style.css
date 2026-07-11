@@ -1158,15 +1158,7 @@ footer {
   overflow: hidden;
 }
 
-.wc-bg.wc-bg--portrait iframe,
-.wi-bg.wi-bg--portrait iframe,
-.ph-bg.ph-bg--portrait iframe {
-  width: 100vw;
-  height: calc(100vw * 16 / 9);
-  min-width: unset;
-  min-height: unset;
-  transform: translate(-50%, -50%);
-}
+/* Portrait iframe sizing is handled by JS (resizePortraitBgs in main.js) */
 
 .work-card:hover .wc-bg video,
 .work-card:hover .wc-bg img { transform: scale(1.04); }
