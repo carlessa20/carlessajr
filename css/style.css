@@ -1264,7 +1264,7 @@ footer {
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
   transition: color .2s;
-  margin-top: auto;
+  margin-top: 14px;
 }
 
 .work-card:hover .wc-view { color: #fff; }
