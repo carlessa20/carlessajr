@@ -1136,6 +1136,7 @@ footer {
 
 .work-card--wide {
   grid-column: 1 / -1;
+  aspect-ratio: 32 / 9;
 }
 
 .work-card {
