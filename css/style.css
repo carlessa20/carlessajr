@@ -2141,7 +2141,41 @@ footer {
   .project-grid,
   .project-grid.two-col { grid-template-columns: 1fr; }
 
-  footer { flex-direction: column; align-items: flex-start; }
+  footer { flex-direction: column; align-items: center; text-align: center; }
+  .footer-nav { justify-content: center; }
 
   .connect-list a { grid-template-columns: 100px 1fr 20px; }
+
+  /* ── NAV: push open links right, closer to Instagram/LinkedIn ── */
+  .nav-right { flex: 1; }
+  .nav-open-links { justify-content: flex-end; gap: 20px; }
+
+  /* ── HERO: add breathing room below name ── */
+  .hero-roles { margin-top: 28px; }
+
+  /* ── WORKS: Peter Millar card same aspect ratio as others ── */
+  .work-card.work-card--wide { aspect-ratio: 4/3; }
+
+  /* ── PROJECT PAGES: overview label stacks above body ── */
+  .po-section { grid-template-columns: 1fr; gap: 16px; }
+
+  /* ── PROJECT PAGES: ps-info label stacks above text ── */
+  .ps-info { grid-template-columns: 1fr; gap: 8px; }
+
+  /* ── PROJECT PAGES: 2-col masonry for bigger images ── */
+  .ps-masonry { column-count: 2; }
+
+  /* ── PROJECT PAGES: stack video pairs/rows/trios vertically ── */
+  .ps-video-pair,
+  .ps-video-row,
+  .ps-video-trio { grid-template-columns: 1fr; }
+
+  /* ── PROJECT PAGES: portrait videos fill width — no side bars ── */
+  .ps-video-pair--vert .ps-video video,
+  .ps-video-pair--vert .ps-video iframe,
+  .ps-video-trio .ps-video video,
+  .ps-video-trio .ps-video iframe { aspect-ratio: 9/16; width: 100%; }
+
+  /* ── PROJECT PAGES: ps-video-left fills full width on mobile ── */
+  .ps-video-left { width: 100%; }
 }
