@@ -63,17 +63,16 @@ img, video, iframe { display: block; max-width: 100%; }
 .loader::after {
   content: '';
   display: block;
-  width: clamp(120px, 22vw, 240px);
-  height: 1px;
-  background: rgba(240, 237, 232, 0.5);
-  transform: scaleX(0);
-  transform-origin: left center;
-  animation: loader-line 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid rgba(240, 237, 232, 0.15);
+  border-top-color: rgba(240, 237, 232, 0.7);
+  border-radius: 50%;
+  animation: loader-spin 0.75s linear infinite;
 }
 
-@keyframes loader-line {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
 }
 
 /* ================================
