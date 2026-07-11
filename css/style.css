@@ -2167,10 +2167,15 @@ footer {
   .ps-masonry { column-count: 2; }
 
   /* ── PROJECT PAGES: text above videos, edge-to-edge video ── */
-  .ps-body { flex-direction: column; gap: 0; }
-  .ps-block { padding-left: 0; padding-right: 0; }
+  .ps-body { flex-direction: column; gap: 0; align-items: stretch; }
+  .ps-block { padding-left: 0; padding-right: 0; padding-top: 28px; padding-bottom: 28px; }
   .ps-head,
   .ps-overview { padding-left: var(--g); padding-right: var(--g); }
+
+  /* ── PROJECT PAGES: horizontal videos full-bleed, no top/bottom gaps ── */
+  .ps-video { margin-bottom: 0; }
+  .ps-video iframe,
+  .ps-video video { display: block; width: 100%; aspect-ratio: 16/9; }
 
   /* ── PROJECT PAGES: stack video pairs/rows/trios vertically, full bleed ── */
   .ps-video-pair,
