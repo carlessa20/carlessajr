@@ -17,7 +17,7 @@ function resizePortraitBgs() {
     iframe.style.position  = 'absolute';
     iframe.style.top       = '50%';
     iframe.style.left      = '50%';
-    iframe.style.transform = 'translate(-50%, -70%)';
+    iframe.style.transform = 'translate(-50%, -62%)';
     iframe.style.minWidth  = 'unset';
     iframe.style.minHeight = 'unset';
   });
