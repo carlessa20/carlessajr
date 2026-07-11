@@ -136,6 +136,12 @@ if (document.querySelector('.ps-video-row, .ps-video-pair, .ps-video-trio, .ps-v
         return playerMap.get(iframe);
       }
 
+      // Pause all sub-section iframes on load (background=1 autoplays them)
+      document.querySelectorAll('.ps-video iframe, .ps-video-left iframe, .ps-video-sq iframe').forEach(iframe => {
+        const player = getPlayer(iframe);
+        player.ready().then(() => player.pause());
+      });
+
       // Grouped rows — hover row, all videos play together
       document.querySelectorAll('.ps-video-row, .ps-video-pair').forEach(row => {
         const iframes = Array.from(row.querySelectorAll('iframe'));
