@@ -418,9 +418,14 @@ body.nav-open .nav-overlay {
 
 .hero-bg iframe {
   position: absolute;
-  inset: -10%;
-  width: 120%;
-  height: 120%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Cover the full container regardless of aspect ratio */
+  width: 177.78vh;   /* 16/9 × 100vh — wide enough when viewport is short */
+  height: 56.25vw;   /* 9/16 × 100vw — tall enough when viewport is narrow */
+  min-width: 100%;
+  min-height: 100%;
   border: none;
   pointer-events: none;
 }
