@@ -1363,14 +1363,20 @@ footer {
   top: calc(var(--nav-h) + 24px);
   left: var(--g);
   z-index: 3;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(240,237,232,0.5);
-  transition: color .2s;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 7px 16px;
+  transition: color .2s, border-color .25s;
 }
 
-.ph-back:hover { color: var(--text); }
+.ph-back:hover {
+  color: var(--text);
+  border-color: rgba(240,237,232,0.55);
+}
 
 .ph-title {
   font-family: 'Saira', var(--font-hero);
@@ -2205,9 +2211,9 @@ footer {
   .ps-body > .ps-video--vert iframe,
   .ps-body > .ps-video--vert video { aspect-ratio: 9/16; object-fit: cover; }
 
-  /* ── PROJECT PAGES: trio videos stay portrait on mobile, match portrait pair size ── */
+  /* ── PROJECT PAGES: trio videos are horizontal content — override desktop 9:16 ── */
   .ps-video-trio .ps-video iframe,
-  .ps-video-trio .ps-video video { aspect-ratio: 9/16; object-fit: cover; }
+  .ps-video-trio .ps-video video { aspect-ratio: 16/9; object-fit: unset; }
 
   /* ── PROJECT PAGES: ps-video-row → portrait at 50% centered, squares 2-col below ── */
   .ps-video-row { grid-template-columns: 1fr; }
