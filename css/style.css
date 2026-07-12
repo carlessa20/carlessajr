@@ -2181,10 +2181,11 @@ footer {
   .ps-video iframe,
   .ps-video video { display: block; width: 100%; aspect-ratio: 16/9; }
 
-  /* ── PROJECT PAGES: horizontal pairs/trios → 1 col (stacked); portrait pairs → 2 col ── */
-  .ps-video-pair,
-  .ps-video-trio { grid-template-columns: 1fr; }
+  /* ── PROJECT PAGES: horizontal pairs → 1 col; portrait pairs → 2 col; trios → 1 col ── */
+  .ps-video-pair { grid-template-columns: 1fr; }
   .ps-video-pair--vert { grid-template-columns: 1fr 1fr; }
+  .ps-video-trio { grid-template-columns: 1fr; }
+  .ps-video-trio .ps-video { width: 75%; margin: 0 auto; }
 
   /* ── PROJECT PAGES: portrait pairs maintain 9/16 aspect at half-width ── */
   .ps-video-pair--vert .ps-video video,
@@ -2199,9 +2200,14 @@ footer {
   /* ── PROJECT PAGES: standalone single horizontal video → full width ── */
   .ps-body > .ps-video { width: 100%; margin: 0; }
 
-  /* ── PROJECT PAGES: trio videos back to 16:9 on mobile (desktop forces 9:16) ── */
+  /* ── PROJECT PAGES: standalone portrait video → 65% centered, proper ratio ── */
+  .ps-body > .ps-video--vert { width: 65%; margin: 0 auto; }
+  .ps-body > .ps-video--vert iframe,
+  .ps-body > .ps-video--vert video { aspect-ratio: 9/16; object-fit: cover; }
+
+  /* ── PROJECT PAGES: trio videos stay portrait on mobile, match portrait pair size ── */
   .ps-video-trio .ps-video iframe,
-  .ps-video-trio .ps-video video { aspect-ratio: 16/9; object-fit: unset; }
+  .ps-video-trio .ps-video video { aspect-ratio: 9/16; object-fit: cover; }
 
   /* ── PROJECT PAGES: ps-video-row → portrait at 50% centered, squares 2-col below ── */
   .ps-video-row { grid-template-columns: 1fr; }
