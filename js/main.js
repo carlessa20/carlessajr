@@ -1,4 +1,37 @@
 // ================================
+// HERO BACKGROUND IFRAME
+// Same problem as portrait BGs — CSS vw-unit width gets capped by
+// max-width:100% from the global rule + Vimeo inline styles. Fix: set px.
+// ================================
+function resizeHeroBg() {
+  var container = document.querySelector('.hero-bg');
+  if (!container) return;
+  var iframe = container.querySelector('iframe');
+  if (!iframe) return;
+  var W = window.innerWidth;
+  var H = window.innerHeight;
+  // 16:9 cover: if viewport is wider than 16:9 fill by width, else fill by height
+  var iW, iH;
+  if (W / H >= 16 / 9) {
+    iW = W;
+    iH = W * 9 / 16;
+  } else {
+    iH = H;
+    iW = H * 16 / 9;
+  }
+  iframe.style.width     = iW + 'px';
+  iframe.style.height    = iH + 'px';
+  iframe.style.maxWidth  = 'none';
+  iframe.style.maxHeight = 'none';
+  iframe.style.position  = 'absolute';
+  iframe.style.top       = '50%';
+  iframe.style.left      = '50%';
+  iframe.style.transform = 'translate(-50%, -50%)';
+}
+document.addEventListener('DOMContentLoaded', resizeHeroBg);
+window.addEventListener('resize', resizeHeroBg);
+
+// ================================
 // PORTRAIT BACKGROUND IFRAMES
 // Force portrait (9:16) iframes to cover their landscape containers.
 // CSS max-width:100% blocks vw-unit overrides, so we set px inline.
