@@ -625,11 +625,18 @@ body.nav-open .nav-overlay {
   font-weight: 700;
 }
 
-.wi-title {
+.wi-info {
   position: absolute;
+  top: 50%;
   left: 24px;
   right: 24px;
-  bottom: 64px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wi-title {
   font-family: var(--font-serif);
   font-size: clamp(18px, 2.2vw, 26px);
   font-weight: 700;
@@ -637,9 +644,6 @@ body.nav-open .nav-overlay {
 }
 
 .wi-meta {
-  position: absolute;
-  left: 24px;
-  bottom: 24px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -2149,8 +2153,8 @@ footer {
   .wi-num, .wi-link { top: 14px; }
   .wi-num { left: 14px; }
   .wi-link { right: 14px; }
-  .wi-title { left: 14px; right: 14px; bottom: 44px; font-size: 16px; }
-  .wi-meta { left: 14px; bottom: 14px; }
+  .wi-info { left: 14px; right: 14px; }
+  .wi-title { font-size: 16px; }
 
   .project-grid,
   .project-grid.two-col { grid-template-columns: 1fr; }
