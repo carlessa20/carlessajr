@@ -566,25 +566,22 @@ body.nav-open .nav-overlay {
   padding: 80px var(--g);
 }
 
-.works-list { margin-top: 0; }
+/* 2 columns x 3 rows of square video tiles */
+.works-list {
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
 
-/* 5 columns: number | title | role meta | category meta | arrow */
 .work-item {
   position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 40px 1fr 200px 220px 100px;
-  align-items: center;
-  gap: 24px;
-  padding: 72px 40px;
-  min-height: 240px;
-  border-bottom: 1px solid var(--border);
+  aspect-ratio: 1 / 1;
   border-radius: 20px;
   transition: opacity .25s;
   text-decoration: none;
 }
-
-.work-item:first-child { border-top: 1px solid var(--border); }
 
 .wi-bg {
   position: absolute;
@@ -598,10 +595,8 @@ body.nav-open .nav-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
-  height: 56.25vw;
-  min-height: 100%;
-  min-width: 177.78vh;
+  width: 178%;
+  height: 100%;
   max-width: none;
   transform: translate(-50%, -50%);
   border: 0;
@@ -611,31 +606,47 @@ body.nav-open .nav-overlay {
 }
 
 .wi-bg::after {
-  content: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0) 65%);
+  pointer-events: none;
 }
 
-.work-item > *:not(.wi-bg) { position: relative; z-index: 1; }
+.work-item > *:not(.wi-bg) { z-index: 1; }
 
 .wi-num {
+  position: absolute;
+  top: 24px;
+  left: 24px;
   font-size: 10px;
   letter-spacing: 0.12em;
   color: var(--text);
   font-weight: 700;
-  padding-top: 2px;
 }
 
 .wi-title {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 64px;
   font-family: var(--font-serif);
-  font-size: clamp(18px, 1.8vw, 26px);
+  font-size: clamp(18px, 2.2vw, 26px);
   font-weight: 700;
   letter-spacing: 0.01em;
 }
 
 .wi-meta {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
+
+/* Keep the tile to one meta line (role) — category is still shown on the project page */
+.wi-meta:last-of-type { display: none; }
 
 .wi-label {
   font-size: 9px;
@@ -652,11 +663,13 @@ body.nav-open .nav-overlay {
 }
 
 .wi-link {
+  position: absolute;
+  top: 24px;
+  right: 24px;
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text);
-  text-align: right;
   display: flex;
   justify-content: flex-end;
 }
@@ -2116,16 +2129,6 @@ footer {
    ================================ */
 
 @media (max-width: 960px) {
-  .work-item {
-    grid-template-columns: 40px 1fr;
-    row-gap: 10px;
-  }
-
-  /* Let meta + link stack below on medium screens */
-  .wi-meta:first-of-type { grid-column: 2; }
-  .wi-meta:last-of-type  { display: none; }
-  .wi-link { text-align: left; grid-column: 2; }
-
   .ticker-item { grid-template-columns: 1fr; gap: 6px; }
   .t-role { text-align: left; }
 
@@ -2142,13 +2145,12 @@ footer {
 
   .hero-name-line { font-size: clamp(64px, 19vw, 120px); }
 
-  .work-item {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
   .wi-num { display: none; }
-  .wi-meta:last-of-type { display: none; }
+  .wi-num, .wi-link { top: 14px; }
+  .wi-num { left: 14px; }
+  .wi-link { right: 14px; }
+  .wi-title { left: 14px; right: 14px; bottom: 44px; font-size: 16px; }
+  .wi-meta { left: 14px; bottom: 14px; }
 
   .project-grid,
   .project-grid.two-col { grid-template-columns: 1fr; }
