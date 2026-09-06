@@ -649,9 +649,6 @@ body.nav-open .nav-overlay {
   gap: 4px;
 }
 
-/* Keep the tile to one meta line (role) — category is still shown on the project page */
-.wi-meta:last-of-type { display: none; }
-
 .wi-label {
   font-size: 9px;
   letter-spacing: 0.18em;
