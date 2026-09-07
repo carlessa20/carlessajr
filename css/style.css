@@ -1690,6 +1690,14 @@ footer {
   margin-bottom: 2px;
 }
 
+/* Stack multiple video groups (e.g. a row + a pair) in one ps-body */
+.ps-video-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
 .ps-overview {
   flex: 0 0 28%;
   display: flex;
@@ -2210,7 +2218,11 @@ footer {
   .ps-body > .ps-video,
   .ps-body > .ps-video-pair,
   .ps-body > .ps-video-trio,
-  .ps-body > .ps-video-row { flex: none !important; }
+  .ps-body > .ps-video-row,
+  .ps-body > .ps-video-stack { flex: none !important; }
+
+  /* ── PROJECT PAGES: stacked video groups get breathing room between them ── */
+  .ps-video-stack { gap: 24px; }
 
   /* ── PROJECT PAGES: standalone single horizontal video → full width ── */
   .ps-body > .ps-video { width: 100%; margin: 0; }
