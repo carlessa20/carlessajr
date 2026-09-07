@@ -1698,6 +1698,12 @@ footer {
   flex: 1;
 }
 
+/* Keep the overview text pinned near the headline instead of centering
+   against a tall stacked video group */
+.ps-body--top {
+  align-items: flex-start;
+}
+
 .ps-overview {
   flex: 0 0 28%;
   display: flex;

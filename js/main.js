@@ -159,10 +159,9 @@ if (heroName) {
 // ================================
 
 if (document.querySelector('.ps-video-row, .ps-video-pair, .ps-video-trio, .ps-video')) {
-  // Native <video> hover-to-play — individual containers
-  document.querySelectorAll('.ps-video').forEach(container => {
-    // Skip if inside a grouped container — handled below
-    if (container.closest('.ps-video-row, .ps-video-pair, .ps-video-trio')) return;
+  // Native <video> hover-to-play — each container plays only while the
+  // cursor is over that specific video, never its neighbors in a row/pair
+  document.querySelectorAll('.ps-video, .ps-video-left, .ps-video-sq').forEach(container => {
     const vid = container.querySelector('video');
     if (!vid) return;
     container.addEventListener('mouseenter', () => vid.play());
@@ -171,7 +170,7 @@ if (document.querySelector('.ps-video-row, .ps-video-pair, .ps-video-trio, .ps-v
 
   // Volume toggle buttons (native video)
   document.querySelectorAll('.vol-btn').forEach(btn => {
-    const container = btn.closest('.ps-video');
+    const container = btn.closest('.ps-video, .ps-video-left, .ps-video-sq');
     if (!container || container.querySelector('iframe')) return;
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -180,15 +179,6 @@ if (document.querySelector('.ps-video-row, .ps-video-pair, .ps-video-trio, .ps-v
       vid.muted = !vid.muted;
       btn.classList.toggle('unmuted', !vid.muted);
     });
-  });
-
-  // Grouped rows — hover fires play on all videos in the group
-  document.querySelectorAll('.ps-video-row, .ps-video-pair, .ps-video-trio').forEach(row => {
-    const vids = Array.from(row.querySelectorAll('video'));
-    if (vids.length) {
-      row.addEventListener('mouseenter', () => vids.forEach(v => v.play()));
-      row.addEventListener('mouseleave', () => vids.forEach(v => v.pause()));
-    }
   });
 
   // Vimeo SDK for iframe-based players
@@ -209,17 +199,9 @@ if (document.querySelector('.ps-video-row, .ps-video-pair, .ps-video-trio, .ps-v
         player.ready().then(() => player.pause());
       });
 
-      // Grouped rows — hover row, all videos play together
-      document.querySelectorAll('.ps-video-row, .ps-video-pair').forEach(row => {
-        const iframes = Array.from(row.querySelectorAll('iframe'));
-        if (!iframes.length) return;
-        const players = iframes.map(getPlayer);
-        row.addEventListener('mouseenter', () => players.forEach(p => p.play()));
-        row.addEventListener('mouseleave', () => players.forEach(p => p.pause()));
-      });
-
-      // Single .ps-video containers
-      document.querySelectorAll('.ps-video').forEach(container => {
+      // Each video container plays only while the cursor is over that
+      // specific video — not the whole row/pair it sits in
+      document.querySelectorAll('.ps-video, .ps-video-left, .ps-video-sq').forEach(container => {
         const iframe = container.querySelector('iframe');
         if (!iframe) return;
         const player = getPlayer(iframe);
