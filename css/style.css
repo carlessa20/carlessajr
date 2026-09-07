@@ -1845,6 +1845,25 @@ footer {
   object-fit: cover;
 }
 
+/* Four video grid — 2x2 */
+.ps-video-quad {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  flex: 1;
+}
+
+.ps-video-quad .ps-video {
+  margin-bottom: 0;
+}
+
+/* Portrait videos inside quad — override 16:9 default */
+.ps-video-quad .ps-video video,
+.ps-video-quad .ps-video iframe {
+  aspect-ratio: 9/16;
+  object-fit: cover;
+}
+
 /* Photo gallery — true masonry via column-count */
 .ps-masonry {
   column-count: 4;
@@ -2224,6 +2243,7 @@ footer {
   .ps-body > .ps-video,
   .ps-body > .ps-video-pair,
   .ps-body > .ps-video-trio,
+  .ps-body > .ps-video-quad,
   .ps-body > .ps-video-row,
   .ps-body > .ps-video-stack { flex: none !important; }
 
