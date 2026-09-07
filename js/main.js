@@ -40,6 +40,7 @@ function resizePortraitBgs() {
   // Per-container vertical crop offsets (negative = shift visible window lower in the video)
   var panY = {
     'wi-bg--portrait': '-40%',   // homepage McCaffrey x Pursuit — logo/signature centered
+    'wi-bg--portrait-2': '-50%', // homepage Reflections on American Style — centered
     'wc-bg--portrait': '-45%',   // works page Music Industry card — up a decent amount
     'ph-bg--portrait': '-45%'    // Music Industry hero page — up a decent amount
   };
